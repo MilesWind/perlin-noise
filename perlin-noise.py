@@ -30,6 +30,6 @@ class noise_map:
 
     def calculate(self, pos):
         total = [];
-        for i in self.dementions:
+        for i in range(self.dementions):
             total.append(layers[i].calculate(pos[i]));
-        return total;
+        return sum(total) / len(total);
