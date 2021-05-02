@@ -7,8 +7,8 @@ class noise_layer:
         self.offset = random.uniform(-69, 69);
 
         self.params = [];
-        for i in range(len(shake)):
-            self.params.append(random.uniform());
+        for i in range(shake):
+            self.params.append(random.uniform(0, 1));
 
     def calculate(self, x):
         total = [];
