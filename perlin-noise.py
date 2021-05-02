@@ -15,3 +15,21 @@ class noise_layer:
         for p in self.params:
             total.append(self.scale * p * x + offset);
         return sum(total) / len(total);
+
+
+class noise_map:
+    def __init__(self, dementions, shake, scale):
+        self.dementions = dementions;
+        self.shake = shake;
+        self.scale = scale;
+
+        layers = [];
+        
+        for i in range(dementions):
+            layers.append(noise_layer(shake, scale));
+
+    def calculate(self, pos):
+        total = [];
+        for i in self.dementions:
+            total.append(layers[i].calculate(pos[i]));
+        return total;
